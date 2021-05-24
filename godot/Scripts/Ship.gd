@@ -4,7 +4,7 @@ extends KinematicBody
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var velocity = Vector3(0,0,-1)
+var velocity = Vector3(0,0,-3)
 const xaccel = .7
 const yaccel = .5
 const decel = 1.1
@@ -33,10 +33,13 @@ func _physics_process(delta):
 	if translation.x <= -10 and velocity.x < 0:
 		velocity.x = 0
 		
-	if translation.y >= 5 and velocity.y > 0:
+	if translation.y >= 10 and velocity.y > 0:
 		velocity.y = 0
 	if translation.y <= 0 and velocity.y < 0:
 		velocity.y = 0
+		
+	rotation.y = -velocity.x/20
+	rotation.x = velocity.y/20
 	
 	move_and_slide(velocity)
 
