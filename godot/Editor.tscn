@@ -1,3 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Editor Camera.gd" type="Script" id=1]
 
 [node name="Spatial" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.926213, 0.377, 0, -0.377, 0.926213, 0, 1.02714, 0 )
+projection = 1
+script = ExtResource( 1 )

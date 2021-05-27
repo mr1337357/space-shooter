@@ -2,8 +2,10 @@ extends KinematicBody
 
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+#var FakeInput = load("res://Scripts/FakeInput.gd")
+#onready var FakeInput = get_node("/root/FakeInput")
+
 var velocity = Vector3(0,0,-3)
 const xaccel = .7
 const yaccel = .5
@@ -16,16 +18,16 @@ func _physics_process(delta):
 
 	velocity.x /= decel
 	velocity.y /= decel
-	if Input.is_action_pressed("ui_right"):
+	if FakeInput.is_action_pressed("ui_right"):
 		velocity.x += xaccel
 
-	if Input.is_action_pressed('ui_left'):
+	if FakeInput.is_action_pressed('ui_left'):
 		velocity.x -= xaccel
 
-	if Input.is_action_pressed("ui_up"):
+	if FakeInput.is_action_pressed("ui_up"):
 		velocity.y -= yaccel
 
-	if Input.is_action_pressed("ui_down"):
+	if FakeInput.is_action_pressed("ui_down"):
 		velocity.y += yaccel
 	
 	if translation.x >= 10 and velocity.x > 0:
