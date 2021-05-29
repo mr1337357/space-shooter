@@ -27,9 +27,9 @@ func _process(delta):
 		movement.x = -.01
 	if FakeInput.is_key_pressed(KEY_D):
 		movement.x = .01
-	if FakeInput.is_key_pressed(KEY_SHIFT):
+	if FakeInput.is_key_pressed(KEY_Q):
 		movement.y = .01
-	if FakeInput.is_key_pressed(KEY_CONTROL):
+	if FakeInput.is_key_pressed(KEY_E):
 		movement.y = -.01
 	translation += movement / delta
 # Called every frame. 'delta' is the elapsed time since the previous frame.

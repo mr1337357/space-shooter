@@ -36,8 +36,11 @@ var old_escape = false
 func _process(delta):
 	if FakeInput.is_key_pressed(KEY_ESCAPE) and not old_escape:
 		if get_tree().paused:
+			if find_node('PauseScreen').find_node('DeadSprite').visible:
+				get_tree().change_scene("res://Main Menu.tscn")
+			else:
+				find_node('PauseScreen').find_node('PauseSprite').visible = false
 			get_tree().paused = false
-			find_node('PauseScreen').find_node('PauseSprite').visible = false
 		else:
 			get_tree().paused = true
 			find_node('PauseScreen').find_node('PauseSprite').visible = true
