@@ -20,7 +20,7 @@ func _ready():
 		add_child(d)
 		
 	var rock_class = load("res://Assets/Rock.tscn")
-	var lvl_load = load("res://scripts/level_loader.gd")
+	var lvl_load = load("res://Scripts/level_loader.gd")
 	loader = lvl_load.new('user://test.lvl')
 	loader.load_obstacles()
 	for obs in loader.obstacles:
