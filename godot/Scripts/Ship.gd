@@ -20,7 +20,7 @@ var freebullets = []
 func _ready():
 	print('ship loaded')
 	var bullet_class = load('res://Assets/bullet.tscn')
-	for x in range(10):
+	for _x in range(10):
 		var bullet = bullet_class.instance()
 		bullets.append(bullet)
 		freebullets.append(bullet)
@@ -62,7 +62,10 @@ func _physics_process(delta):
 			bullet.set_ship(self)
 			get_parent().add_child(bullet)
 	oldspace = FakeInput.is_key_pressed(KEY_SPACE)
-	move_and_slide(velocity)
+	var collision = move_and_collide(velocity*delta)
+	if collision:
+		get_tree().paused = true
+		#get_tree().change_scene("res://Main Menu.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

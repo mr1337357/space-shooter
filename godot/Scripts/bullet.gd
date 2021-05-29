@@ -14,10 +14,14 @@ func set_ship(s):
 	ship = s
 	
 func _process(delta):
-	if translation.z < ship.translation.z - 40:
+	if translation.z < ship.translation.z - 50:
 		get_parent().remove_child(self)
 		ship.freebullets.append(self)
-	move_and_slide(velocity)
+	var collision = move_and_collide(velocity*delta)
+	if collision:
+		get_parent().remove_child(self)
+		ship.freebullets.append(self)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

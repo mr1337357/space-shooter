@@ -15,3 +15,8 @@ script = ExtResource( 2 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 10 )
 script = ExtResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.320717, -0.789107, 0.52388, 0.137208, 0.585969, 0.798633, -0.937185, -0.184254, 0.296201, 8.29085, 12.6, 11.5468 )
+light_color = Color( 1, 0.976471, 0.811765, 1 )
+shadow_enabled = true
