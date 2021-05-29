@@ -1,0 +1,4 @@
+IDEAS:
+-Mouse controls X/Z, Key up/down controls Y in editor
+-hybrid INI/list of data for level files
+

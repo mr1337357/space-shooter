@@ -14,11 +14,24 @@ func _ready():
 var old_v = false
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_V) and old_v == false:
+	var movement = Vector3(0,0,0)
+	if FakeInput.is_key_pressed(KEY_V) and old_v == false:
 		set_projection(get_projection()^1)
-	old_v = Input.is_key_pressed(KEY_V)
+	old_v = FakeInput.is_key_pressed(KEY_V)
 	
-	if
+	if FakeInput.is_key_pressed(KEY_W):
+		movement.z = -.01
+	if FakeInput.is_key_pressed(KEY_S):
+		movement.z = .01
+	if FakeInput.is_key_pressed(KEY_A):
+		movement.x = -.01
+	if FakeInput.is_key_pressed(KEY_D):
+		movement.x = .01
+	if FakeInput.is_key_pressed(KEY_SHIFT):
+		movement.y = .01
+	if FakeInput.is_key_pressed(KEY_CONTROL):
+		movement.y = -.01
+	translation += movement / delta
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
