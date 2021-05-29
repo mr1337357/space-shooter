@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Art/Logo.png" type="Texture" id=1]
 [ext_resource path="res://Art/play button.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/button-play.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Button_editor.gd" type="Script" id=4]
 [ext_resource path="res://Art/editor_button.png" type="Texture" id=5]
+[ext_resource path="res://editor_env.tres" type="Environment" id=6]
 
 [node name="Spatial" type="Spatial"]
 
@@ -49,6 +50,7 @@ position = Vector2( 150.837, 56.0633 )
 texture = ExtResource( 5 )
 
 [node name="Camera" type="Camera" parent="."]
+environment = ExtResource( 6 )
 
 [connection signal="pressed" from="Control/button-play" to="Control/button-play" method="_on_buttonplay_pressed"]
 [connection signal="pressed" from="Control/Button_editor" to="Control/Button_editor" method="_on_Button_editor_pressed"]

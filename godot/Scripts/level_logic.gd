@@ -32,7 +32,16 @@ func _ready():
 	#add_child(dusts)
 	pass # Replace with function body.
 
-
+var old_escape = false
+func _process(delta):
+	if FakeInput.is_key_pressed(KEY_ESCAPE) and not old_escape:
+		if get_tree().paused:
+			get_tree().paused = false
+			find_node('PauseScreen').find_node('PauseSprite').visible = false
+		else:
+			get_tree().paused = true
+			find_node('PauseScreen').find_node('PauseSprite').visible = true
+	old_escape = FakeInput.is_key_pressed(KEY_ESCAPE)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

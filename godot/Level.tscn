@@ -1,18 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Ship.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/level_logic.gd" type="Script" id=4]
+[ext_resource path="res://Screens/pause.tscn" type="PackedScene" id=5]
 
 [node name="Level" type="Spatial"]
+pause_mode = 2
 script = ExtResource( 4 )
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
+pause_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 10 )
 script = ExtResource( 3 )
 
@@ -20,3 +24,6 @@ script = ExtResource( 3 )
 transform = Transform( 0.320717, -0.789107, 0.52388, 0.137208, 0.585969, 0.798633, -0.937185, -0.184254, 0.296201, 8.29085, 12.6, 11.5468 )
 light_color = Color( 1, 0.976471, 0.811765, 1 )
 shadow_enabled = true
+
+[node name="PauseScreen" parent="." instance=ExtResource( 5 )]
+pause_mode = 2

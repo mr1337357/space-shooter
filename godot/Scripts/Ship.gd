@@ -65,6 +65,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
 	if collision:
 		get_tree().paused = true
+		get_parent().find_node('PauseScreen').find_node('DeadSprite').visible = true
 		#get_tree().change_scene("res://Main Menu.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
