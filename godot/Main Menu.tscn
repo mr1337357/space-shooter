@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/button-play.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/Button_editor.gd" type="Script" id=4]
 [ext_resource path="res://Art/editor_button.png" type="Texture" id=5]
-[ext_resource path="res://editor_env.tres" type="Environment" id=6]
+[ext_resource path="res://Environments/editor_env.tres" type="Environment" id=6]
 
 [node name="Spatial" type="Spatial"]
 
