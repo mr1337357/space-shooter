@@ -10,10 +10,21 @@ var velocity = Vector3(0,0,-3)
 const xaccel = .7
 const yaccel = .5
 const decel = 1.1
+
+var oldspace = false
 # Called when the node enters the scene tree for the first time.
+var bullets = []
+var freebullets = []
+
+
 func _ready():
 	print('ship loaded')
-
+	var bullet_class = load('res://Assets/bullet.tscn')
+	for x in range(10):
+		var bullet = bullet_class.instance()
+		bullets.append(bullet)
+		freebullets.append(bullet)
+	
 func _physics_process(delta):
 
 	velocity.x /= decel
@@ -42,7 +53,15 @@ func _physics_process(delta):
 		
 	rotation.y = -velocity.x/20
 	rotation.x = velocity.y/20
-	
+	if 	FakeInput.is_key_pressed(KEY_SPACE) and not oldspace:
+		var bullet = freebullets.pop_front()
+		if bullet != null:
+			var loc = translation
+			loc.z-=3
+			bullet.translation = loc
+			bullet.set_ship(self)
+			get_parent().add_child(bullet)
+	oldspace = FakeInput.is_key_pressed(KEY_SPACE)
 	move_and_slide(velocity)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
