@@ -57,6 +57,8 @@ func load_obstacles():
 		if is_obs:
 			line = line.split(',')
 			print(line)
+			if len(line) < 4:
+				continue
 			var obs = [int(line[0]),float(line[1]),float(line[2]),float(line[3])]
 			obstacles.append(obs)
 	fd.close()
