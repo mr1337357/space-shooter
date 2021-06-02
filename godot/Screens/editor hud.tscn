@@ -13,25 +13,5 @@ texture = ExtResource( 1 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 
-[node name="new_map_button" type="Button" parent="."]
-margin_left = -112.0
-margin_top = 90.0
-margin_right = -70.0
-margin_bottom = 110.0
-text = "NEW"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="open_map_button" type="Button" parent="."]
-margin_left = -65.5711
-margin_top = 90.1699
-margin_right = -17.5711
-margin_bottom = 110.17
-text = "OPEN"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FileMenu" parent="." instance=ExtResource( 2 )]
 position = Vector2( -232.071, -185.204 )

@@ -14,7 +14,7 @@ var sections = {}
 func _init(fn):
 	filename = fn
 	file = File.new()
-	file.open(filename,)
+	file.open(filename,file.READ)
 func load_section(name):
 	name = '['+name+']'
 	var f = File.new()

@@ -8,9 +8,9 @@ var rock_class
 var loader
 var obstacles = []
 var levelpath = ''
+var filepicker
 
 func load_level():
-	print('asdf')
 	var lvl_load = load("res://scripts/level_loader.gd")
 	loader = lvl_load.new(levelpath)
 	loader.load_obstacles()
@@ -24,8 +24,15 @@ func load_level():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rock_class = load("res://Assets/Rock.tscn")
-	find_node('Hud').find_node('FileMenu').open_dir('user://levels/')
+	filepicker = find_node('Hud').find_node('FileMenu')
+	filepicker.open_dir('user://levels/')
 		
+func _process(delta):
+	var path = filepicker.get_picked()
+	if path != null:
+		levelpath = path
+		load_level()
+		filepicker.visible=false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
