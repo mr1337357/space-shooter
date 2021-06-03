@@ -26,6 +26,7 @@ func _ready():
 	rock_class = load("res://Assets/Rock.tscn")
 	filepicker = find_node('Hud').find_node('FileMenu')
 	filepicker.open_dir('user://levels/')
+	find_node('Camera').frozen = true
 		
 func _process(delta):
 	var path = filepicker.get_picked()
@@ -33,6 +34,7 @@ func _process(delta):
 		levelpath = path
 		load_level()
 		filepicker.visible=false
+		find_node('Camera').frozen = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

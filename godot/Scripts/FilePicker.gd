@@ -29,22 +29,35 @@ func open_dir(path='user://',hidden=false):
 		file_name = dir.get_next()
 
 func get_picked():
-	var rv = picked
-	picked = null
-	return rv
+	if picked != null:
+		var rv = path + find_node('ItemList').get_item_text(picked)
+		picked = null
+		return rv
+	return null
 
 func _process(delta):
 	var btn = find_node('Open_Button')
-	print(btn.is_pressed())
 	var list = find_node('ItemList')
-	print(list.is_anything_selected())
 	if btn.is_pressed() and list.is_anything_selected():
 		picked = list.get_selected_items()[0]
 		return
 	btn = find_node('New_Button')
-	if btn.pressed:
+	if btn.is_pressed():
+		find_node('NewFileUI').visible = true
 		pass #create empty file
-	
+	btn = find_node('OKButton')
+	if btn.is_pressed():
+		var filename = path + find_node('LineEdit').text
+		print(filename)
+		var file = File.new()
+		var err = file.open(filename,File.WRITE)
+		
+		print(err)
+		file.close()
+		find_node('NewFileUI').visible = false
+	btn = find_node('CancelButton')
+	if btn.is_pressed():
+		find_node('NewFileUI').visible = false
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

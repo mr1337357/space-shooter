@@ -5,6 +5,7 @@ extends Camera
 # var a = 2
 # var b = "text"
 
+var frozen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +15,8 @@ func _ready():
 var old_v = false
 
 func _process(delta):
+	if frozen == true:
+		return
 	var movement = Vector3(0,0,0)
 	if FakeInput.is_key_pressed(KEY_V) and old_v == false:
 		set_projection(get_projection()^1)
